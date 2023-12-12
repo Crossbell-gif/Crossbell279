@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击播放音乐</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        #content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #myAudio {
+            display: none; /* 初始隐藏音频元素 */
+        }
+
+        #playButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none; /* 去除点击时的默认外边框 */
+            width: 100%; /* 使其充满父容器 */
+            max-width: 400px; /* 限制最大宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            margin-bottom: 20px; /* 增加垂直方向的边距 */
+        }
+
+        #playButton:hover {
+            background-color: #45a049;
+        }
+
+        #additionalContent {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        #leftText {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #rightText {
+            font-size: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <!-- 显示图片 -->
+    <img id="playButton" src="微信图片_20231207124921.jpg" alt="音乐封面" onclick="toggleAudio()">
+
+    <div id="additionalContent">
+        <div id="leftText">一份特别的礼物</div>
+    </div>
+
+    <!-- 音频元素，设置autoplay属性以实现自动播放 -->
+    <audio id="myAudio" controls autoplay>
+        <!-- 使用相对路径 -->
+        <source src="以冬 - 我的一个道姑朋友.mp3" type="audio/mp3">
+        您的浏览器不支持音频标签。
+    </audio>
+</div>
+
+<script>
+    var audio = document.getElementById('myAudio');
+
+    // 函数，在用户点击图片时切换音频播放状态
+    function toggleAudio() {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+
+</body>
+</html>
+
